@@ -42,7 +42,9 @@ class Artist
 
   def print_songs #instance method iterates through @songs of an instance of Artist
     self.songs.each {|song| song.name}
-    @song.new
+    artist.add_song(dirty_diana)
+    artist.add_song(billie_jean)
+end
   
    
   end
