@@ -69,24 +69,49 @@ class Song
   end
 end
 
+# class MP3Importer
+#   attr_accessor :path
+
+#   def initialize(path)
+#     @path = path
+#   end
+
+#   def files
+#     files = []
+#     Dir.new(self.path).each do |file|
+#       files << file if file.length > 4
+#     end
+#     files
+#   end
+
+#   def import
+#     self.files.each do |filename|
+#       Song.new_by_filename(filename)
+#     end
+#   end
+# end
+
 class MP3Importer
-  attr_accessor :path
+  attr_accessor :filenames, :path
 
   def initialize(path)
     @path = path
+    @filenames = []
   end
 
   def files
-    files = []
-    Dir.new(self.path).each do |file|
-      files << file if file.length > 4
+    Dir.entries(path).each do |filename|
+      @filenames << "#{filename}"
     end
-    files
+    @filenames.delete_if {|x| x == "." || x == ".."}
   end
 
   def import
-    self.files.each do |filename|
-      Song.new_by_filename(filename)
+    @filenames.each do |filename|
+      filename.split(" - ")[2] = artist_name
+      Artist.find_or_create_by_name(artist_name)
+      filename.split(" - ")[1] = song
+      Artist.add_song(song)
     end
   end
 end
