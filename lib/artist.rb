@@ -40,10 +40,7 @@ class Artist
     artist
   end
 
-    def print_songs
-      artist.add_song(dirty_diana)
-      artist.add_song(billie_jean)
-    end
+    
   end
 end
 
