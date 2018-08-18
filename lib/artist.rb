@@ -86,7 +86,7 @@ class MP3Importer
       Song.new_by_filename(filename)
       
      dir /s *.mp3 >listmp3.txt 
-     
+     https://learn.co/tracks/full-stack-web-development-v6/object-oriented-ruby/object-relationships/collaborating-objects-lab#
       
       
     end
