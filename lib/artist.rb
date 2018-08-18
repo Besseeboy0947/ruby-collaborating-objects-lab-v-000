@@ -45,8 +45,6 @@ class Artist
     artist.add_song(dirty_diana)
     artist.add_song(billie_jean)
 end
-  
-   
   end
 end
 
