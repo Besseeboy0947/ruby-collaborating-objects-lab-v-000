@@ -40,9 +40,12 @@ class Artist
     artist
   end
 
-  def print_songs #instance method iterates through @songs of an instance of Artist
-    self.songs.each {|song| song.name}
-    
+  
+  def print_songs 
+		@songs.each do |song|
+			puts song.name
+		end 
+  
   
    
   end
@@ -69,49 +72,24 @@ class Song
   end
 end
 
-# class MP3Importer
-#   attr_accessor :path
-
-#   def initialize(path)
-#     @path = path
-#   end
-
-#   def files
-#     files = []
-#     Dir.new(self.path).each do |file|
-#       files << file if file.length > 4
-#     end
-#     files
-#   end
-
-#   def import
-#     self.files.each do |filename|
-#       Song.new_by_filename(filename)
-#     end
-#   end
-# end
-
 class MP3Importer
-  attr_accessor :filenames, :path
+  attr_accessor :path
 
   def initialize(path)
     @path = path
-    @filenames = []
   end
 
   def files
-    Dir.entries(path).each do |filename|
-      @filenames << "#{filename}"
+    files = []
+    Dir.new(self.path).each do |file|
+      files << file if file.length > 4
     end
-    @filenames.delete_if {|x| x == "." || x == ".."}
+    files
   end
 
   def import
-    @filenames.each do |filename|
-      filename.split(" - ")[2] = artist_name
-      Artist.find_or_create_by_name(artist_name)
-      filename.split(" - ")[1] = song
-      Artist.add_song(song)
+    self.files.each do |filename|
+      Song.new_by_filename(filename)
     end
   end
 end
