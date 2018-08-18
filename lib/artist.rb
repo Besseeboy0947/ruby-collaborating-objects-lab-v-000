@@ -91,14 +91,14 @@ class MP3Importer
      
      
      
-     describe '#print_songs' do
-    it 'lists all of the artist\'s songs' do
-      dirty_diana = Song.new("Dirty Diana")
-      billie_jean = Song.new("Billie Jean")
-      artist.add_song(dirty_diana)
-      artist.add_song(billie_jean)
-      expect{artist.print_songs}.to output("Dirty Diana\nBillie Jean\n").to_stdout
-    end
+    # describe '#print_songs' do
+    # it 'lists all of the artist\'s songs' do
+    #   dirty_diana = Song.new("Dirty Diana")
+    #   billie_jean = Song.new("Billie Jean")
+    #   artist.add_song(dirty_diana)
+    #   artist.add_song(billie_jean)
+    #   expect{artist.print_songs}.to output("Dirty Diana\nBillie Jean\n").to_stdout
+    # end
   
       
       
