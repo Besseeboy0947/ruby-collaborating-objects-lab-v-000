@@ -66,33 +66,3 @@ class Song
   end
 end
 
-class MP3Importer
-  attr_accessor :path
-
-  def initialize(path)
-    @path = path
-  end
-
-  def files
-    files = []
-    Dir.new(self.path).each do |file|
-      files << file if file.length > 4
-    end
-    files
-  end
-
-  def import
-    self.files.each do |filename|
-      Song.new_by_filename(filename)
-    # describe '#print_songs' do
-    # it 'lists all of the artist\'s songs' do
-    #   dirty_diana = Song.new("Dirty Diana")
-    #   billie_jean = Song.new("Billie Jean")
-    #   artist.add_song(dirty_diana)
-    #   artist.add_song(billie_jean)
-    #   expect{artist.print_songs}.to output("Dirty Diana\nBillie Jean\n").to_stdout
-    # end
-    end
-  end
-end
-
