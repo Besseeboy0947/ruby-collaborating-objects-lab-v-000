@@ -84,13 +84,6 @@ class MP3Importer
   def import
     self.files.each do |filename|
       Song.new_by_filename(filename)
-      
-     dir /s *.mp3 >listmp3.txt 
-     
-     
-     
-     
-     
     # describe '#print_songs' do
     # it 'lists all of the artist\'s songs' do
     #   dirty_diana = Song.new("Dirty Diana")
@@ -99,9 +92,6 @@ class MP3Importer
     #   artist.add_song(billie_jean)
     #   expect{artist.print_songs}.to output("Dirty Diana\nBillie Jean\n").to_stdout
     # end
-  
-      
-      
     end
   end
 end
